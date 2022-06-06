@@ -9,7 +9,7 @@
 
 // In this chapter, we will discuss control structure and functions.
 
-// expresions vs. statement
+// Expressions vs. Statements
 // An expression produces a value.
 // A statement carries out an action. Action can usually have side effects (mutation).
 
