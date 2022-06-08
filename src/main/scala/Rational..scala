@@ -30,7 +30,6 @@ class Rational(x: Int, y: Int) {
     //println("g: " + g)
     // Above will print "g: #" every time Rational(#, #) is called in testRational.
 
-
     // Auxiliary constructor.
     // x is numerator, denominator is 1.
     def this(x: Int) = this(x, 1)
@@ -56,7 +55,6 @@ class Rational(x: Int, y: Int) {
     def < (that: Rational): Boolean = {
         numer * that.denom < that.numer * denom
     }
-
 
     // Take the maximum of two Rational values.
     def max(that: Rational): Rational = {
