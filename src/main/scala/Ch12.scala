@@ -1,7 +1,7 @@
 // Ch12.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Thu.. 06/09/2022
+// Due: Thu. 06/09/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 06/06/2018.
