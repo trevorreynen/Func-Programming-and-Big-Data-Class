@@ -1,7 +1,7 @@
 // Homework1.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Thu. 06/09/2022
+// Thu. 06/09/2022
 // Trevor Reynen
 
 // Homework 1

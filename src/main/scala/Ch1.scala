@@ -1,7 +1,7 @@
 // Ch1.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Mon. 06/06/2022
+// Mon. 06/06/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 07/07/2020.
@@ -155,6 +155,7 @@ object Ch1 {
 
         // Recap
         // In this section, we introduce some of the basic concepts of Scala programming.
+
     }
 }
 

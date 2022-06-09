@@ -1,13 +1,13 @@
 // Ch6.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Wed. 06/08/2022
+// Wed. 06/08/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 07/04/2020.
 
 // Chapter 6
-// In this sectionm we will learn when to use the Object construct in Scala.
+// In this section we will learn when to use the Object construct in Scala.
 // You use Object construct when you need a class with a single instance or when you want to find
 // a home for various values or functions, which is very similar to a static method.
 
@@ -20,6 +20,7 @@
 // Account.newUniqueNumber() is made. If an Object is never used, it's constructors are not
 // executed at all.
 object Account {
+
     // Similar to static variable (field) in Java.
     private var lastNumber = 0
 
@@ -27,7 +28,8 @@ object Account {
         lastNumber += 1
         lastNumber
     }
-} // End of Object Account
+
+} // End of Object Account.
 
 
 
@@ -41,6 +43,7 @@ object Account {
 // 'val' means field. Without 'val', it is class parameter.
 
 // You have two fields, first one (id) is immutable and second one (balance) is mutable.
+
 class Account1 private(val id: Int, initialBalance: Double) {
 
     // Declare second field.
@@ -49,12 +52,14 @@ class Account1 private(val id: Int, initialBalance: Double) {
     def deposit(amount: Double): Unit = { balance += amount }
 
     def description: String = "Account " + id + " with balance " + balance
+
 }
 
 
 // Companion Object.
 // This will contain static method and variable for Account1 class.
 object Account1 {
+
     // This is the field for Object Account1, which is similar to static member of Java.
     private var lastNumber = 0
 
@@ -72,7 +77,8 @@ object Account1 {
     def apply(initialBalance: Double): Account1 = {
         new Account1(newUniqueNumber(), initialBalance)
     }
-} // End of Object Account1
+
+} // End of Companion Object Account1.
 
 
 
@@ -81,20 +87,24 @@ object Account1 {
 
 // One useful application is to specify default Objects that can be shared.
 
-// Abstact class means that one or several method's implementation is empty. This is useful
+// Abstract class means that one or several method's implementation is empty. This is useful
 // for inheritance.
 
 abstract class UndoableAction(val description: String) {
+
     def undo(): Unit
     def redo(): Unit
+
 }
 
 
 // A useful default is the "do nothing" action. Of course, we only need one of them. Extends means
-// that DoNothingAction is the sublass of UndoableAction.
+// that DoNothingAction is the subclass of UndoableAction.
 object DoNothingAction extends UndoableAction("Do Nothing") {
+
     def undo() {} // We define empty action
     def redo() {}
+
 }
 
 // DoNothingAction Object can be shared across all places that need this default.
@@ -102,6 +112,7 @@ object DoNothingAction extends UndoableAction("Do Nothing") {
 
 object Ch6 {
     def main(args: Array[String]): Unit = {
+
         // When newUniqueNumber is called for the first time, the Account Object is
         // created (which is single instance).
         val res0 = Account.newUniqueNumber()

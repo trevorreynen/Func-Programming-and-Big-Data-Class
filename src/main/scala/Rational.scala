@@ -1,7 +1,7 @@
 // Rational.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Wed. 06/08/2022
+// Wed. 06/08/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 07/04/2020.
@@ -16,14 +16,14 @@
 // and y become fields of the Object.
 class Rational(x: Int, y: Int) {
 
-    // Figure out what is greated common divisor so that we can reduce Rational to simplest form.
+    // Figure out what is greatest common divisor so that we can reduce Rational to simplest form.
     // This is recursive function without mutation.
     private def gcd(a: Int, b: Int): Int = {
         if (b == 0) a // Base case.
         else gcd(b, a % b) // Recursive case.
     }
 
-    // We define the private instance variable (field) holding gcd. Follwing 2 statements are
+    // We define the private instance variable (field) holding gcd. Following 2 statements are
     // executed when you build the Object. They are part of your primary constructor.
 
     private val g = gcd(x, y)
@@ -61,7 +61,7 @@ class Rational(x: Int, y: Int) {
         if (this < that) that else this
     }
 
-    // Define negative of Ratinal number.
+    // Define negative of a Rational number.
     def unary_- : Rational = new Rational(-numer, denom)
 
     def - (that: Rational): Rational = this + -that
@@ -71,6 +71,7 @@ class Rational(x: Int, y: Int) {
 
 object testRational {
     def main(args: Array[String]): Unit = {
+
         val rat1 = new Rational(6, 8)
         println("rat1: " + rat1)
         // Output: rat1: 3/4
@@ -82,9 +83,9 @@ object testRational {
         val res1 = new Rational(3, 4)
         val res2 = new Rational(5, 7)
         val res3 = res1 + res2
-        // res3 = res1.add(res2) Java
-        // res4 = res1 + res2 + res3
-        // res4 = res1.add(res2).add(res3) Java
+        // Java: res3 = res1.add(res2)
+        //res4 = res1 + res2 + res3
+        // Java: res4 = res1.add(res2).add(res3)
         println("res3: " + res3)
         // Output: res3: 41/28
 

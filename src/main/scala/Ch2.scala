@@ -1,7 +1,7 @@
 // Ch2.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Tue. 06/07/2022
+// Tue. 06/07/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 06/28/2020.
@@ -112,7 +112,7 @@ object Ch2 {
         val s1 = "Hello"
         var sum1 = 0
 
-        // Until returns a range that does not include the upperbound.
+        // Until returns a range that does not include the upper-bound.
         for (i <- 0 until s1.length)
             sum1 += s1(i)
 
@@ -166,7 +166,7 @@ object Ch2 {
         // When the body of the for loop starts with yield, the loop constructs a collection
         // of values, one for each iteration.
 
-        // res18 is indexedsequence. Usually we use vector to represent indexedsequence.
+        // res18 is IndexedSequence. Usually we use vector to represent IndexedSequence.
         // Vector is an immutable collection.
 
         val res18 = for (i <- 1 to 10) yield 1 % 3

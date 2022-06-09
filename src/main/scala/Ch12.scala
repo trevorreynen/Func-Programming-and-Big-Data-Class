@@ -1,7 +1,7 @@
 // Ch12.scala
 
 // CSCI-509 - Functional Programming & Big Data | USC Upstate
-// Due: Thu. 06/09/2022
+// Thu. 06/09/2022
 // Trevor Reynen
 
 // Created by Wei Zhong on 06/06/2018.
@@ -11,9 +11,9 @@
 // manipulated just like any other data type.
 
 // In Java before 1.8: Data is first class citizen and function is second class citizen.
-
 object Ch12 {
     def main(args: Array[String]): Unit = {
+
         // ========== 12.1 Functions as Values ==========
         // In Scala, a function is a first-class citizen just like a number.
         // You can store a function in a variable.
@@ -24,7 +24,6 @@ object Ch12 {
         // did not just forget to supply the arguments.
 
         // fun: Double => Double
-
         // fun is a variable containing a function, not a fixed function.
         val fun = ceil _
 
@@ -35,7 +34,7 @@ object Ch12 {
         println("res0: " + res0)
         // Output: res0: 4.0
 
-        // In second way, you can give it to a function as argument.
+        // In the second way, you can give it to a function as argument.
 
         // The map function accepts a function, applies this function to each value in array
         // and returns an array with the function value.
@@ -143,7 +142,7 @@ object Ch12 {
         // Since the function knows that you will pas in Double => Double.
         val res11 = valueAtOneQuarter(x => x * 3)
 
-        // As a special bonux, for a function that has just one parameter, you can omit the ()
+        // As a special bonus, for a function that has just one parameter, you can omit the ()
         // around the parameter. If you have 2 parameters, you cannot drop the parenthesis.
         val res12 = valueAtOneQuarter(x => x * 3)
 
@@ -187,7 +186,7 @@ object Ch12 {
         // Output: res15: Vector(2, 4, 6, 8)
 
         // reduceLeft
-        // Pruduce something by combining elements from left to right.
+        // Produce something by combining elements from left to right.
         val res16 = (1 to 5).reduceLeft((x, y) => x * y)
         println("res16: " + res16)
         // Output: res16: 120
@@ -237,7 +236,7 @@ object Ch12 {
         // In many cases, x and y are not available at the same time. If you only have x, you
         // can get y from other program.
 
-        // In that situation, this function is very uweful.
+        // In that situation, this function is very useful.
         def mulOneAtTime(x: Int): Int => Int = (y: Int) => x * y
 
         // Equivalent notation
@@ -264,8 +263,8 @@ object Ch12 {
 
 
         // ========== 12.9 Control Abstractions ==========
-        // Calll-by-value parameter: parameter is always evaluated before the function call.
-        // Call-by-name parameter: (important concept in functional programming) paramter will not
+        // Call-by-value parameter: parameter is always evaluated before the function call.
+        // Call-by-name parameter: (important concept in functional programming) parameter will not
         // evaluate when you call the function. Parameter is evaluated on demand.
 
         // This is called LAZY EVALUATION.
