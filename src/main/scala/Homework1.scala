@@ -4,7 +4,7 @@
 // Thu. 06/09/2022
 // Trevor Reynen
 
-// Homework 1
+// ==========<  Homework 1  >==========
 
 object Homework1 {
     def main(args: Array[String]): Unit = {
