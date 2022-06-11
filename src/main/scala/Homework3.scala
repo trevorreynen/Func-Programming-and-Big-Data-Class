@@ -52,27 +52,32 @@ object Homework3 {
         // while (in.hasNext()) process in.next()
         // Or look at the documentations for a Scala way. At the end, print out all words and their
         // counts.
-        val words1 = new scala.collection.mutable.HashMap[String, Int]
-        val in1 = new java.util.Scanner(new java.io.File("./assets/HW3text.txt"))
 
-        def count(word: String) = {
-            if (words1.contains(word)) {
-                words1(word) += 1
-            } else {
-                words1(word) = 1
+        def count(process: String => Unit): Unit = {
+            val in = new java.util.Scanner(new java.io.File("./assets/HW3text.txt"))
+
+            try {
+                while (in.hasNext) {
+                    process(in.next())
+                }
+            } finally {
+                in.close()
             }
         }
 
-        while (in1.hasNext()) {
-            count(in1.next())
+        def countWordsMutableMap(): scala.collection.mutable.HashMap[String, Int] = {
+            val words = new scala.collection.mutable.HashMap[String, Int]
+            count(w => words(w) = words.getOrElse(w, 0) + 1)
+
+            println("Question 3:")
+            words.foreach{ case (word, count) => printf("%2d - %s\n", count, word) }
+            println()
+            words
         }
 
-        println("Question 3:")
-        println("count - word")
-        words1.foreach{ case (word, count) => printf("%2d - %s\n", count, word) }
+        countWordsMutableMap()
         // Output:
         // Question 3:
-        // count - word
         //  1 - is
         //  1 - dream
         //  1 - you
@@ -92,12 +97,42 @@ object Homework3 {
         //  2 - very
         //  1 - make
         //  1 - your
-        println()
 
 
         // Question 4
         // Repeat the preceding exercise with an immutable map.
+        def countWordsImmutableMap(): Map[String, Int] = {
+            var words = Map[String, Int]()
+            count(w => words += w -> (words.getOrElse(w, 0) + 1))
 
+            println("Question 4:")
+            words.foreach{ case (word, count) => printf("%2d - %s\n", count, word) }
+
+            words
+        }
+
+        countWordsImmutableMap()
+        // Output:
+        // Question 4:
+        //  1 - dream
+        //  1 - have
+        //  1 - your
+        //  2 - are
+        //  1 - is
+        //  1 - dreaam
+        //  1 - a
+        //  1 - hw2
+        //  1 - I
+        //  1 - work
+        //  1 - you
+        //  2 - how
+        //  1 - my
+        //  1 - todya
+        //  1 - make
+        //  1 - well.
+        //  2 - very
+        //  1 - and
+        //  1 - today
 
     }
 }
