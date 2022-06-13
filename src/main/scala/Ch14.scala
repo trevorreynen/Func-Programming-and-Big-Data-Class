@@ -61,18 +61,17 @@ object Ch14 {
 
         val str = "+-3!"
 
-        for (i <- 0 until str.length) {
-        //for (i <- str.indices) {
+        //for (i <- 0 until str.length) {
+        for (i <- str.indices) {
             var sign = 0
             var digit = 0
 
             str(i) match {
                 case '+' => sign = 1
                 case '-' => sign = -1
-                case ch => digit = 10
+                //case ch => digit = 10
+                case ch if Character.isDigit(ch) => digit = Character.digit(ch, 10)
                 case _ =>
-                //case ch if Character.isDigit(ch) => digit = Character.digit(ch, 10)
-                //case _ =>
             }
 
             println(str(i) + " " + sign + " " + digit)
@@ -123,7 +122,7 @@ object Ch14 {
         for (obj <- Array(Map("Fred" -> 42), Map(42 -> "Fred"), Array(42), (Array("Fred")))) {
             val result = obj match {
 
-                case m: Map[_, _] => "It's a Map! #Dora"
+                case m: Map[_, _] => "It's a Map!"
                 case a: Array[Int] => "It's an Array[Int]!"
                 case b: Array[_] => "It's an Array of something other than Int..."
             }
@@ -135,7 +134,7 @@ object Ch14 {
 
 
 
-        // ========== 14.5 Matching Arrays, Lists and Tuples ==========
+        // ========== 14.5 Matching Arrays, Lists, and Tuples ==========
         // To match an array against it's contents, use Array expression in pattern.
 
         for (arr <- Array(Array(0), Array(1, 0), Array(0, 1, 0), Array(1, 1, 0))) {
@@ -172,6 +171,20 @@ object Ch14 {
 
         println()
 
+        // Matching tuples. Tuples are immutable. Tuples are basically several items grouped
+        // together. Tuples are denoted by ( ).
+        for (pair <- Array((0, 1), (1, 0), (1, 1))) {
+            // Matching is the expression, which produces a value.
+            val result = pair match {
+                case (0, _) => "0." // First item is zero.
+                case (y, 0) => y + " 0" // Second item is zero.
+                case _ => "Neither is 0"
+            }
+
+            println(result + "\n")
+        }
+
+
         // Pattern matching with regular expression.
         // A bunch of digits, one white space, and a bunch of letters.
 
@@ -203,9 +216,7 @@ object Ch14 {
         // _* represents the rest of array.
         val Array(first, second, _*) = arr1
         println("first: " + first)
-        println("second: " + second)
-        println()
-        println()
+        println("second: " + second + "\n")
 
 
 
@@ -215,15 +226,17 @@ object Ch14 {
 
         // k is key and v is value for each item in the map.
         for ((k, v) <- System.getProperties()) {
-            println(k + " -> " + v)
+            //println(k + " -> " + v) // Commented out since it fills debug menu 10 fold.
         }
-        println()
-        println()
+
+        //println() // Commented out since it's related to println above..
 
         // Print all keys with empty value, skipping over all others.
         for ((k, "") <- System.getProperties()) {
-            println(k)
+            //println(k) // Commented out since it fills debug menu 10 fold.
         }
+
+        //println() // Commented out since it's related to println above..
 
 
 
@@ -254,7 +267,7 @@ object Ch14 {
             val result = amt match {
                 // v is value to build the object.
                 case Dollar(v) => "$" + v
-                case Currency(_, u) => "Oh noes, I got" + u
+                case Currency(_, u) => "Oh no, I got " + u
                 case Nothing => ""
             }
 
@@ -280,7 +293,7 @@ object Ch14 {
         // Remove n'th element of list.
         def removeAt[T](xs: List[T], n: Int): List[T] = {
             // We take first n and drop first n+1 element.
-            (xs take n) ++ (xs drop n+1)
+            (xs take n) ++ (xs drop n + 1)
         }
 
         val res5a = List(4, 10, 35, 21, 11, 34, 45)
@@ -299,7 +312,7 @@ object Ch14 {
 
         // Higher order list function.
 
-        // Multiply each element of list by some factor.
+        // Multiply each element of list by same factor.
         def scaleList(xs: List[Double], factor: Double): List[Double] = {
             xs map (x => x * factor)
         }
@@ -343,7 +356,8 @@ object Ch14 {
         val res9 = pack(res8)
         println("res9: " + res9)
 
-        // Using pack, write a function encode that produces the run-length encoding of list. Run-length encoding is used to compression of image and other files.
+        // Using pack, write a function encode that produces the run-length encoding of list.
+        // Run-length encoding is used to compression of image and other files.
         // I get the letter and it's length.
         def encode[T](xs: List[T]): List[(T, Int)] = {
             pack(xs) map (ys => (ys.head, ys.length))
@@ -351,7 +365,7 @@ object Ch14 {
 
         // Array and Strings
         // Array and String can implicitly be converted to sequence where needed. As a result,
-        // Arrays and Strings can support the same operations as Seq. They can not be subclasses of
+        // Arrays and Strings can support the same operations as Seq. They cannot be subclasses of
         // Seq because they come from Java World.
 
         val xs2 = Array(1, 2, 3, 44)
@@ -369,21 +383,21 @@ object Ch14 {
         println("res15: " + res15)
 
         // Whether all letters are upper case.
-        val res16 = s2 forall (c => c.isUpper)
-        println("res16: " + res16)
+        val res16a = s2 forall (c => c.isUpper)
+        println("res16a: " + res16a)
 
         // Zip list and string.
         val pairs1 = List(1, 2, 3) zip s2
         println("pairs1: " + pairs1)
 
-        val res16a = List("Hello", "World")
-        val pairs2 = List(1, 2, 3) zip res16a
+        val res16b = List("Hello", "World")
+        val pairs2 = List(1, 2, 3) zip res16b
         println("pairs2: " + pairs2)
 
         val res17 = pairs2.unzip
         println("res17: " + res17)
 
-        // xs flatMap f  -  f is collection-values function.
+        // xs flatMap f   f is a collection-valued function.
         // Applied f to each element of xs and concatenates the results.
         val res18 = s2 flatMap (c => List('.', c))
         println("res18: " + res18)
