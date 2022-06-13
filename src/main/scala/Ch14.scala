@@ -18,13 +18,15 @@ object Ch14 {
 
         // ========== 14.1 Better Switch ==========
         // C-style switch statement in Scala.
+
         for (ch <- "+-!") {
             var sign = 0
 
             // ch is target.
             // '+' is the pattern.
-            // Pattern matching is an expression, which produces a value. Functional languages
-            // prefer expressions over statements since expressions have no side effect.
+            // Pattern matching is an expression, which produces a value.
+            // Functional languages prefer expressions over statements since expressions have no
+            // side effect.
             sign = ch match {
                 case '+' => 1
                 case '-' => -1
@@ -32,11 +34,11 @@ object Ch14 {
                 case _ => 0
             }
 
-            println(sign + " ")
+            print(sign + " ")
         }
-        println()
 
-        // You can use the match statement with any types, not just numbers or chars.
+
+        // You can use the match statement with any types, not just numbers or characters.
         import java.awt._
 
         val color = SystemColor.textText
@@ -49,36 +51,40 @@ object Ch14 {
             case _ => "Not red or black."
         }
 
-        println("res0: " + res0)
+        println("\n\nres0: " + res0 + "\n")
 
 
 
         // ========== 14.3 Variables in Patterns ==========
-
         // If the case keyboard is followed by a variable name, then the match expressions is
         // assigned to that variable.
 
-        val str1 = "+-3!"
+        val str = "+-3!"
 
-        for (i <- 0 until str1.length) {
-            var sign1 = 0
-            var digit1 = 0
+        for (i <- 0 until str.length) {
+        //for (i <- str.indices) {
+            var sign = 0
+            var digit = 0
 
-            str1(i) match {
-                case '+' => sign1 = 1
-                case '-' => sign1 = -1
-                // ch is a variable if the pattern is a variable. It's value is the value from
-                // the target. In this situation, ch will match to anything.
-                case ch  => digit1 = 10
+            str(i) match {
+                case '+' => sign = 1
+                case '-' => sign = -1
+                case ch => digit = 10
                 case _ =>
+                //case ch if Character.isDigit(ch) => digit = Character.digit(ch, 10)
+                //case _ =>
             }
 
-            println(str1(i) + " " + sign1 + " " + digit1)
-
+            println(str(i) + " " + sign + " " + digit)
         }
 
         println()
-        println()
+
+        // Output w/ Zhong's Code   | Output w/ Book's Code
+        // + 1 0                    | + 1 0
+        // - -1 0                   | - -1 0
+        // 3 0 10                   | 3 0 3
+        // ! 0 10                   | ! 0 0
 
 
 
@@ -103,7 +109,6 @@ object Ch14 {
         }
 
         println()
-        println()
 
 
         // This example demonstrates pattern matching is more powerful and flexible than simple
@@ -118,13 +123,14 @@ object Ch14 {
         for (obj <- Array(Map("Fred" -> 42), Map(42 -> "Fred"), Array(42), (Array("Fred")))) {
             val result = obj match {
 
-                case m: Map[_, _] => "It's a map! #Dora"
-                case a: Array[Int] => "It's an array[Int]."
-                case b: Array[_] => "It's an array of something other than Int."
+                case m: Map[_, _] => "It's a Map! #Dora"
+                case a: Array[Int] => "It's an Array[Int]!"
+                case b: Array[_] => "It's an Array of something other than Int..."
             }
 
             println(result)
         }
+
         println()
 
 
@@ -143,7 +149,7 @@ object Ch14 {
 
             println(result)
         }
-        println()
+
         println()
 
         // You can match lists in the same way, with list expression. Array is mutable data
@@ -165,7 +171,6 @@ object Ch14 {
         }
 
         println()
-        println()
 
         // Pattern matching with regular expression.
         // A bunch of digits, one white space, and a bunch of letters.
@@ -175,23 +180,22 @@ object Ch14 {
         val res1 = "99 bottles" match {
             case pattern(num, item) => (num.toInt, item)
         }
-        println("res1: " + res1)
+
+        println("res1: " + res1 + "\n")
 
 
 
         // ========== 14.7 Patterns in Variable Declaration ==========
         // You can use these patterns inside variable declaration.
 
-        println()
         val (x, y) = (1, 2)
         println("x: " + x)
-        println("y: " + y)
-        println()
+        println("y: " + y + "\n")
 
         // Tuple is very useful for functions that return a pair.
         val (q, r) = BigInt(10) /% 3
         println("q: " + q)
-        println("r: " + r)
+        println("r: " + r + "\n")
 
 
         // Same syntax works for any patterns with variable names.
@@ -323,7 +327,7 @@ object Ch14 {
         val res7 = nums span (x => x > 0)
         println("res7: " + res7)
 
-        // Write a functional that packs consecutive duplicates of list elements into sublists.
+        // Write a functional that packs consecutive duplicates of list elements into sub-lists.
         def pack[T](xs: List[T]): List[List[T]] = {
             xs match {
                 case Nil => Nil
