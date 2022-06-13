@@ -74,7 +74,7 @@ object Homework3 {
             var words = Map[String, Int]()
             count(w => words += w -> (words.getOrElse(w, 0) + 1))
 
-            println("\nQuestion 4:")
+            println("Question 4:")
             words.foreach{ case (word, count) => printf("%2d - %s\n", count, word) }
 
             words

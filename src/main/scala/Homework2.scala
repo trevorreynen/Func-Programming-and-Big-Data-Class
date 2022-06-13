@@ -20,7 +20,6 @@ object Homework2 {
         val strArr2 = Array("Functional", "Recursive")
         val lenArr2 = Array(10, 9)
         println("Question 1, Part 2: " + strArr2.corresponds(lenArr2)((str, len) => str.length == len))
-        println()
 
 
         // Question 2
@@ -31,8 +30,7 @@ object Homework2 {
             fun(inputs.reduceLeft((x,y) => if (fun(x) >= fun(y)) x else y))
         }
 
-        println("Question 2: " + largest((x => 10 * x - x * x), (1.to(10))))
-        println()
+        println("\nQuestion 2: " + largest((x => 10 * x - x * x), (1.to(10))))
 
 
         // Question 3
@@ -43,8 +41,7 @@ object Homework2 {
             inputs.reduceLeft((x, y) => if (fun(x) >= fun(y)) x else y)
         }
 
-        println("Question 3: " + largestAt((x => 10 * x - x * x), (1.to(10))))
-        println()
+        println("\nQuestion 3: " + largestAt((x => 10 * x - x * x), (1.to(10))))
 
 
         // Question 4
@@ -58,7 +55,7 @@ object Homework2 {
             }
         }
 
-        print("Question 4, (1 == 2): ")
+        print("\nQuestion 4, (1 == 2): ")
         unless(1 == 2) { print("Returned!\n") }
 
         print("Question 4, (2 == 2): ")
@@ -78,7 +75,7 @@ object Homework2 {
             for (i <- low to high) yield (i, fun(i))
         }
 
-        println("Question 5: " + values((x => x * x), -5, 5))
+        println("\nQuestion 5: " + values((x => x * x), -5, 5))
 
     }
 }
