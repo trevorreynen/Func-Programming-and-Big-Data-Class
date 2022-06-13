@@ -16,12 +16,10 @@ object Homework2 {
         val strArr1 = Array("Hello", "Gaming")
         val lenArr1 = Array(5, 8)
         println("Question 1, Part 1: " + strArr1.corresponds(lenArr1)((str, len) => str.length == len))
-        // Output: Question 1, Part 1: false
 
         val strArr2 = Array("Functional", "Recursive")
         val lenArr2 = Array(10, 9)
         println("Question 1, Part 2: " + strArr2.corresponds(lenArr2)((str, len) => str.length == len))
-        // Output: Question 1, Part 2: true
         println()
 
 
@@ -30,12 +28,10 @@ object Homework2 {
         // value of a function within a given sequence of inputs. For example, largest(x =>
         // 10 * x - x * x, 1 to 10) should return 25. Don't use a loop or recursion.
         def largest(fun: (Int) => Int, inputs: Seq[Int]): Int = {
-            //inputs.map(fun(_)).reduceLeft((a, b) => if (a > b) a else b)
             fun(inputs.reduceLeft((x,y) => if (fun(x) >= fun(y)) x else y))
         }
 
         println("Question 2: " + largest((x => 10 * x - x * x), (1.to(10))))
-        // Output: Question 2: 25
         println()
 
 
@@ -48,7 +44,6 @@ object Homework2 {
         }
 
         println("Question 3: " + largestAt((x => 10 * x - x * x), (1.to(10))))
-        // Output: Question 3: 5
         println()
 
 
@@ -65,16 +60,13 @@ object Homework2 {
 
         print("Question 4, (1 == 2): ")
         unless(1 == 2) { print("Returned!\n") }
-        // Output: Question 4, (1 == 2): Returned!
 
         print("Question 4, (2 == 2): ")
         unless(2 == 2) { print("Returned!\n") }
-        // Output: Question 4, (2 == 2):
         println()
 
         print("Question 4, (3 == 2): ")
         unless(3 == 2) { print("Returned!\n") }
-        // Output: Question 4, (3 == 2): Returned!
         println()
 
 
@@ -87,7 +79,6 @@ object Homework2 {
         }
 
         println("Question 5: " + values((x => x * x), -5, 5))
-        // Output: Question 5: Vector((-5,25), (-4,16), (-3,9), (-2,4), (-1,1), (0,0), (1,1), (2,4), (3,9), (4,16), (5,25))
 
     }
 }

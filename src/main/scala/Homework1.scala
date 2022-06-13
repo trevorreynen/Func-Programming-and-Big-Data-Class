@@ -14,6 +14,7 @@ object Homework1 {
         // of all letters in a string. For example, the product of the characters in "Hello"
         // is 9415087488.
         def product(s: String) = s.foldLeft(1: BigInt)((a, b) => a * b)
+
         println("Question 1: \"Hello\" = " + product("Hello"))
         println("Question 1: \"Goodbye\" = " + product("Goodbye"))
 
@@ -41,8 +42,10 @@ object Homework1 {
                 println(i)
             }
         }
+
         println("\nQuestion 4: countdown(7)")
         countdown(7)
+
         println("Question 4: countdown(3)")
         countdown(3)
 
@@ -70,6 +73,7 @@ object Homework1 {
                 0
             }
         }
+
         println("\nQuestion 6: signum(4) = " + signum(4))
         println("Question 6: signum(-32) = " + signum(-32))
         println("Question 6: signum(0) = " + signum(0))
