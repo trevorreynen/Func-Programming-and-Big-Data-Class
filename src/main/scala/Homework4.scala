@@ -24,7 +24,31 @@ object Homework4 {
         // Collect results and print them.
 
 
+        // Sources, most helpful, so far:
+        // https://alvintoh.gitbook.io/apache-2-0-spark-with-scala/section-3-spark-basics-and-simple-examples/13.-key-value-rdds-and-the-average-friends-by-age-example
+        // https://stackoverflow.com/questions/40471719/scala-convert-liststring-to-tuple-listint-int
+        // https://www.oreilly.com/library/view/learning-spark/9781449359034/ch04.html
 
+        def parseLine(line: String) = {
+            val element = line.split(",")
+            val customerID = element(0).toInt
+            val moneySpent = element(2).toDouble
+            (customerID, moneySpent)
+        }
+
+        val file = scala.io.Source.fromFile("./assets/customer-orders.csv")
+
+        val lines = file
+            .getLines()
+            .map(parseLine)
+            .toSeq
+
+        for (l <- lines) {
+            //println(l)
+
+            val (x, y) = l
+            println("CustomerID: " + x + ", moneySpent: " + y)
+        }
 
 
     }

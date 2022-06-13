@@ -178,7 +178,7 @@ object Ch13 {
         // Better way to process the list is to use pattern matching. Pattern matching is a very
         // powerful mechanism in functional programming.
 
-        // :: operator in the second pattern in used to destructure the list into head and tail.
+        // :: operator in the second pattern is used to destructure the list into head and tail.
         // lst is the target, h :: t is the pattern.
 
         def sum2(lst: List[Int]): Int = {
