@@ -64,7 +64,6 @@ object Homework2 {
 
         print("Question 4, (3 == 2): ")
         unless(3 == 2) { print("Returned!\n") }
-        println()
 
 
         // Question 5
