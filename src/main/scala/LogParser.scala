@@ -93,52 +93,52 @@ object LogParser {
         ssc.start()
         ssc.awaitTermination()
 
-        /* ==========<  EXAMPLE RESULTS  >==========
+        /* Output (Example):
 
-            -------------------------------------------
-            Time: 1655665629000 ms
-            -------------------------------------------
-            (/xmlrpc.php,82)
-            (/,32)
-            (/robots.txt,21)
-            (/wp-login.php,15)
-            (http://51.254.206.142/httptest.php,9)
-            (/favicon.ico,3)
-            (/orlando-headlines/,2)
-            ([Error],1)
-            (/about/,1)
-            (/?page_id=2112,1)
-            ...
+        -------------------------------------------
+        Time: 1655665629000 ms
+        -------------------------------------------
+        (/xmlrpc.php,82)
+        (/,32)
+        (/robots.txt,21)
+        (/wp-login.php,15)
+        (http://51.254.206.142/httptest.php,9)
+        (/favicon.ico,3)
+        (/orlando-headlines/,2)
+        ([Error],1)
+        (/about/,1)
+        (/?page_id=2112,1)
+        ...
 
-            -------------------------------------------
-            Time: 1655665632000 ms
-            -------------------------------------------
-            (/xmlrpc.php,802)
-            (/,32)
-            (/robots.txt,22)
-            (/wp-login.php,16)
-            (http://51.254.206.142/httptest.php,9)
-            (/weather/,3)
-            (/favicon.ico,3)
-            (/orlando-headlines/,2)
-            ([Error],1)
-            (/about/,1)
-            ...
+        -------------------------------------------
+        Time: 1655665632000 ms
+        -------------------------------------------
+        (/xmlrpc.php,802)
+        (/,32)
+        (/robots.txt,22)
+        (/wp-login.php,16)
+        (http://51.254.206.142/httptest.php,9)
+        (/weather/,3)
+        (/favicon.ico,3)
+        (/orlando-headlines/,2)
+        ([Error],1)
+        (/about/,1)
+        ...
 
-            -------------------------------------------
-            Time: 1655665635000 ms
-            -------------------------------------------
-            (/xmlrpc.php,1491)
-            (/,33)
-            (/robots.txt,23)
-            (/wp-login.php,16)
-            (http://51.254.206.142/httptest.php,9)
-            (/weather/,3)
-            (/favicon.ico,3)
-            (/orlando-headlines/,2)
-            ([Error],1)
-            (/about/,1)
-            ...
+        -------------------------------------------
+        Time: 1655665635000 ms
+        -------------------------------------------
+        (/xmlrpc.php,1491)
+        (/,33)
+        (/robots.txt,23)
+        (/wp-login.php,16)
+        (http://51.254.206.142/httptest.php,9)
+        (/weather/,3)
+        (/favicon.ico,3)
+        (/orlando-headlines/,2)
+        ([Error],1)
+        (/about/,1)
+        ...
 
         */
 
