@@ -2,7 +2,7 @@
 // I Guess name doesn't really matter?
 // "FunctionalProgramming" changed to "Func-Programming-and-Big-Data-Class"
 name := "Func-Programming-and-Big-Data-Class"
-version := "0.1.0-SNAPSHOT" // 1.0 changed to 0.1.0-SNAPSHOT
+version := "1.0" // 1.0 changed to 0.1.0-SNAPSHOT
 scalaVersion := "2.12.8" // 2.12.12 changed to 2.12.8
 libraryDependencies += "org.apache.spark" %% "spark-core" % "3.0.0"
 libraryDependencies += "org.apache.spark" %% "spark-mllib" % "3.0.0"

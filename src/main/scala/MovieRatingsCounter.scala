@@ -59,7 +59,6 @@ object MovieRatingsCounter {
         // (4,34174)
         // (5,21201)
 
-
     }
 }
 

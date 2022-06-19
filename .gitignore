@@ -39,3 +39,7 @@ bin/
 
 # General
 *.class
+
+# Other
+assets/not-currently-using/
+assets/checkpoint/

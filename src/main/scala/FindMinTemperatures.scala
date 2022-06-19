@@ -70,8 +70,6 @@ object FindMinTemperatures {
         // EZE00100082 minimum temperature: 7.70 F
         // ITE00100554 minimum temperature: 5.36 F
 
-        // EXERCISE
-        // Find minimum temperature for whole years for each station.
 
     }
 }
