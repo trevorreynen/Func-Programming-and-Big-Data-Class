@@ -40,7 +40,7 @@ object LogParser {
         Logger.getLogger("org").setLevel(Level.ERROR)
 
         // Create the context with a 3 second batch size.
-        val ssc = new StreamingContext("local[*]", "LogParser", Seconds(3))
+        val sc = new StreamingContext("local[*]", "LogParser", Seconds(3))
 
         setupLogging()
 
@@ -48,7 +48,7 @@ object LogParser {
         val pattern = apacheLogPattern()
 
         // Create a socket stream to read log data published via netcat on port 9999 locally.
-        val lines = ssc.socketTextStream("127.0.0.1", 9999, StorageLevel.MEMORY_AND_DISK_SER)
+        val lines = sc.socketTextStream("127.0.0.1", 9999, StorageLevel.MEMORY_AND_DISK_SER)
 
         // Extract the request field from each log line. If the record is invalid, discard.
 
@@ -86,12 +86,12 @@ object LogParser {
         */
 
         // Set a checkpoint directory, and kick it off. Please create checkpoint directory.
-        ssc.checkpoint("./assets/checkpoint/")
+        sc.checkpoint("./assets/checkpoint/")
         // I am hiding the /assets/checkpoint/ folder from Git/GitHub since I don't want to go
         // through all those files created by this program and idk if they contain any kind of
         // important information.
-        ssc.start()
-        ssc.awaitTermination()
+        sc.start()
+        sc.awaitTermination()
 
         /* Output (Example):
 
