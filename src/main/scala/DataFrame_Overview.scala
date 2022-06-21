@@ -22,6 +22,7 @@
 
 
 // Imports.
+import org.apache.log4j.{ Level, Logger }
 import org.apache.spark.sql.SparkSession
 import Utilities._
 
@@ -29,62 +30,67 @@ import Utilities._
 object DataFrame_Overview {
     def main(args: Array[String]): Unit = {
 
+        // Teacher was using the setupLogging() function from Utilities.scala, but I realized
+        // it doesn't work. So, instead I just add the line below it which does the same thing.
+        //setupLogging()
+        Logger.getLogger("org").setLevel(Level.ERROR)
+
         // Start a simple Spark Session.
         val spark = SparkSession
             .builder()
             .master("local[*]")
             .getOrCreate()
 
-        setupLogging()
-
         // Create a DataFrame from Spark Session.
-        // header = true will treat first row as header (get column name).
-        // inferSchema = true will infer type for each column.
+        // .option("header", "true") = Will treat first row as a header row (gets column names).
+        // .option("inferSchema", "true") = Will infer data type for each column.
         // Spark can infer the Schema based on objects or elements inside the data source.
-        val df = spark.read.option("header", "true")
+        val df = spark.read
+            .option("header", "true")
             .option("inferSchema", "true")
             .csv("./assets/CitiGroup2006_2008")
 
-        // Find out DataTypes.
-        // Print Schema (column name and its data type)
-        println("Schema")
-        df.printSchema()
-        println()
 
-        println("Describe Show Statistics of Numerical Columns")
+        // Print Schema (column names and their data type)
+        println("DataFrame Schema")
+        df.printSchema() // Prints the schema to the console in a nice tree format.
+
+
+        println("Describe and show stats of Numerical Columns")
         df.describe().show()
-        println()
 
-        println("Column Name")
-        println(df.columns.mkString(", "))
-        println()
+
+        println("Column names: " + df.columns.mkString(", ") + "\n")
+
 
         // Get first 10 rows.
-        println("First 10 rows")
+        println("First 10 rows of DataFrame:")
         for (row <- df.head(10)) println(row)
-        println()
 
-        println("Select columns called Volume")
+
+        println("\nSelecting column(s) called Volume")
         df.select("Volume").show(5)
-        println()
 
-        import spark.implicits.StringToColumn // Converts $"col name" into a Column. See line 72.
 
-        println("Select multiple columns Date and Close")
+        // Converts $"col name" into a Column. See example below.
+        import spark.implicits.StringToColumn
+
+        println("Selecting multiple columns. In this case, columns Date and Close")
         df.select($"Date", $"Close").show(2)
-        println()
 
-        println("Creating New Columns with New Dataframe")
+
+        println("Creating new column(s) with a new DataFrame")
         val df2 = df.withColumn("HighPlusLow", $"High" + $"Low")
-        println(df2.columns.mkString(", "))
-        println()
+
+
+        println("New DataFrame column names: " + df2.columns.mkString(", ") + "\n")
+        println("New DataFrame Schema:")
         df2.printSchema()
-        println()
 
+        println("First 5 rows of new DataFrame:")
         df2.head(5).foreach(println)
-        println()
 
-        println("Renaming Columns (and selecting close column)")
+        println("\nRenaming column(s) (and selecting close column)")
         // You can use $ notation $"Close" or df2("Close") to select column.
         df2.select(df2("HighPlusLow").as("HPL"), df2("Close")).show()
 

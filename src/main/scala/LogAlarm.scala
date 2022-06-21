@@ -35,12 +35,13 @@ import Utilities._
 object LogAlarm {
     def main(args: Array[String]): Unit = {
 
+        // Teacher was using the setupLogging() function from the Utilities.scala, but I realized
+        // it doesn't work. So, instead I just add the line below it which does the same thing.
+        //setupLogging()
         Logger.getLogger("org").setLevel(Level.ERROR)
 
         // Create the context with a 3 second batch size.
         val sc = new StreamingContext("local[*]", "LogAlarmer", Seconds(3))
-
-        setupLogging()
 
         // Construct a regular expression (regex) to extract fields from raw Apache log lines.
         val pattern = apacheLogPattern()
