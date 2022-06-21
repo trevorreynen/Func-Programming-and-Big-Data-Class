@@ -17,7 +17,7 @@
 // An Object defines a single instance of a class with features that you want.
 
 // In our example the Account constructor is executed when the first call to
-// Account.newUniqueNumber() is made. If an Object is never used, it's constructors are not
+// Account.newUniqueNumber() is made. If an Object is never used, its constructors are not
 // executed at all.
 object Account {
 
@@ -122,7 +122,7 @@ object Ch6 {
         // You refer to same Account Object.
         val res1 = Account.newUniqueNumber()
         // You refer to same Account Object every time you call newUniqueNumber. The value
-        // of it's counter increases.
+        // of its counter increases.
         // You can't have second Account Object in your program.
         val resla = Account.newUniqueNumber()
 

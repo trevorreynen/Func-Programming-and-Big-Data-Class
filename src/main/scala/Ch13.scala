@@ -161,7 +161,7 @@ object Ch13 {
         println("r8: " + r8)
         // Output: r8: List(9, 4, 2)
 
-        // In Java or C++, one uses an iterator to traverse a linked list. Bit it's often more
+        // In Java or C++, one uses an iterator to traverse a linked list. But it's often more
         // natural to use recursion since list is recursive data structure.
 
         // For example, the following function computes the sum of all elements in a list of integers.

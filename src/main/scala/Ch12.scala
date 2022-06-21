@@ -223,7 +223,7 @@ object Ch12 {
         val triple2 = mulBy3(3)
         val half2 = mulBy3(0.5)
 
-        // Each of the returned functions has it's own setting for factor.
+        // Each of the returned functions has its own setting for factor.
         // Factor is non-local variable captured by function.
 
 
@@ -324,7 +324,7 @@ object Ch12 {
         var z = 10
 
         // Until is language keyword created by yourself.
-        // This is a very powerful feature which makes Scala extend it's functionality very easily.
+        // This is a very powerful feature which makes Scala extend its functionality very easily.
         // if z == 0 is false, continue the loop.
         until(z == 0) {
             z -= 1

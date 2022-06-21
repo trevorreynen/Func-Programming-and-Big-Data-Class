@@ -90,7 +90,7 @@ object Ch2 {
         // Output: r: 3628800 n: 0
 
 
-        // For any language features, you need to evaluate it's advantages and disadvantages.
+        // For any language features, you need to evaluate its advantages and disadvantages.
         // As a developer, you need to have the critical mindset.
 
         // For Expressions, the construct:

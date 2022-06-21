@@ -135,7 +135,7 @@ object Ch14 {
 
 
         // ========== 14.5 Matching Arrays, Lists, and Tuples ==========
-        // To match an array against it's contents, use Array expression in pattern.
+        // To match an array against its contents, use Array expression in pattern.
 
         for (arr <- Array(Array(0), Array(1, 0), Array(0, 1, 0), Array(1, 1, 0))) {
             val result = arr match {
@@ -248,7 +248,7 @@ object Ch14 {
         // You need to answer 2 questions:
         // 1) Which subclass was used (what kind of constructor we used to build subclass? Whether
         // it's Dollar, Currency, or Nothing.
-        // 2) What were the arguments of constructors or what is value of it's instance variable.
+        // 2) What were the arguments of constructors or what is value of its instance variable.
         // This situation is so common that many functional language automate it. Technical term
         // for this situation is called pattern matching.
 
@@ -358,7 +358,7 @@ object Ch14 {
 
         // Using pack, write a function encode that produces the run-length encoding of list.
         // Run-length encoding is used to compression of image and other files.
-        // I get the letter and it's length.
+        // I get the letter and its length.
         def encode[T](xs: List[T]): List[(T, Int)] = {
             pack(xs) map (ys => (ys.head, ys.length))
         }

@@ -18,7 +18,7 @@ object Ch1 {
         // However, this is rarely used.
         val answer1: Int = 8 * 5 + 2
 
-        // A value declared with 'val' is actually a constant. You can not change it's contents.
+        // A value declared with 'val' is actually a constant. You can not change its contents.
         // In other words, answer is immutable.
 
         // To declare a variable whose contents can vary, use 'var'.

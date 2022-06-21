@@ -51,7 +51,7 @@ object WordCountSorted {
             .sortByKey()
             .collect()
 
-        // Going through wordCountSorted array to figure out each word and it's count.
+        // Going through wordCountSorted array to figure out each word and its count.
         for (result <- wordCountSorted) {
             val (count, word) = (result._1, result._2)
             println(s"$word: $count")
