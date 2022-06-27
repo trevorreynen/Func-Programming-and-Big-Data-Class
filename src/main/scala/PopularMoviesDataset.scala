@@ -20,7 +20,7 @@ import scala.io.{ Codec, Source }
 import java.nio.charset.CodingErrorAction
 
 
-object popularMovieDataset {
+object PopularMoviesDataset {
 
     // Load up a map of movies IDs to movie names.
     def loadMovieNames: Map[Int, String] = {
