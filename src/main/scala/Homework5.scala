@@ -19,7 +19,7 @@
 //     Q4: What is the mean of the Close column?   ~~~DONE~~~
 //     Q5: What is the max and min of the Volume column?   ~~~DONE~~~
 // For Scala/Spark $ Syntax
-// 6. How many days was the Close lower than $ 600?   ~~~DONE~~~
+// 6. How many days was the Close lower than $600?   ~~~DONE~~~
 // 7. What percentage of the time was the High greater than $500?   ~~~DONE~~~
 // 8. What is the Pearson correlation between High and Volume?   ~~~DONE~~~
 // 9. What is the max High per year?   ~~~DONE~~~
@@ -80,7 +80,7 @@ object Homework5 {
 
 
         //  Q3: What day had the Peak High in Price?
-        println("Q3: What day had the Peak High in Price? ")
+        println("Q3: What day had the Peak High in Price?")
         df.orderBy(df("High").desc).show(3)
 
 
@@ -102,8 +102,8 @@ object Homework5 {
         import spark.implicits._
 
 
-        // 6. How many days was the Close lower than $ 600?
-        println("6. How many days was the Close lower than $ 600?  " + df.filter($"Close" < 600).count() + "\n")
+        // 6. How many days was the Close lower than $600?
+        println("6. How many days was the Close lower than $600? " + df.filter($"Close" < 600).count() + "\n")
 
 
         // 7. What percentage of the time was the High greater than $500?
