@@ -20,9 +20,9 @@ val userRatingsSchema = new StructType()
 // 4. Use tab as separator "\t", load Schema from userRatingsSchema and force case class to read
 // it as Dataset.   ~~~DONE~~~
 // 5. Select only ratings column (The file format is userID, movieID, rating, timestamp).   ~~~DONE~~~
-// 6. Count up how many times each value (rating) occurs using groupBy and count.
-// 7. Sort the resulting Dataset by count column.
-// 8. Print results from the Dataset.
+// 6. Count up how many times each value (rating) occurs using groupBy and count.   ~~~DONE~~~
+// 7. Sort the resulting Dataset by count column.   ~~~DONE~~~
+// 8. Print results from the Dataset.   ~~~DONE~~~
 
 
 // Imports.
@@ -73,6 +73,7 @@ object Homework6 {
         // 5. Select only ratings column (The file format is userID, movieID, rating, timestamp).
         val ratingsColumn = userRatingsDS.select("rating")
 
+
         // 6. Count up how many times each value (rating) occurs using groupBy and count.
         val ratingsCount = ratingsColumn
             .groupBy("rating")
@@ -81,6 +82,7 @@ object Homework6 {
 
         // 7. Sort the resulting Dataset by count column.
         val ratingsCountSorted = ratingsCount.sort("count")
+
 
         // 8. Print results from the Dataset.
         ratingsCountSorted.show(ratingsCountSorted.count.toInt)
